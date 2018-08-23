@@ -39,7 +39,12 @@ base.module.rules.push({
 base.module.rules.push({
   test: /\.css$/,
   use: [
-    process.env.NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
+    {
+      loader: process.env.NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
+      options: {
+        publicPath: process.env.NODE_ENV !== 'development'?'../':'./'
+      }
+    },
     'css-loader',
     'postcss-loader'
   ]
