@@ -1,0 +1,79 @@
+$blue: #3190e8;
+$bc: #e4e4e4;
+$fc:#fff;
+
+/*// 背景图片地址和大小*/
+@define-mixin bis $name {
+    background-image: url("../images/$(name).png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+@define-mixin borderRadius $radius {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+/*//定位全屏*/
+@define-mixin allcover{
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+/*//定位上下左右居中*/
+@define-mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*//定位上下居中*/
+@define-mixin ct {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/*//定位上下居中*/
+@define-mixin cl {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*//宽高*/
+@define-mixin wh $width,$height{
+    width: $width;
+    height: $height;
+}
+
+/*//字体大小、行高、字体*/
+@define-mixin ftf $size, $family: 'Microsoft YaHei' {
+    font: $size $family;
+}
+
+/*//字体大小，颜色*/
+@define-mixin sc $size, $color{
+    font-size: $size;
+    color: $color;
+}
+
+/*//flex 布局和 子元素 对其方式*/
+@define-mixin fj $type: space-between{
+    display: flex;
+    justify-content: $type;
+
+}
+/*多行省略*/
+@define-mixin ellipsis $n: 1{
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp:$n;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
